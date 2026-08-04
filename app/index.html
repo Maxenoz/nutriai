@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NutriAI</title>
+
+<link rel="manifest" href="manifest.json">
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7f5;
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+}
+
+h1 {
+    color: #2e7d32;
+}
+
+.card {
+    background: white;
+    border-radius: 18px;
+    padding: 18px;
+    margin: 15px 0;
+    box-shadow: 0 3px 10px #0002;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 14px;
+    background: #2e7d32;
+    color: white;
+    font-size: 16px;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-top: 8px;
+}
+
+.nutrients {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.nutrient {
+    background: #e8f5e9;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+img {
+    max-width: 100%;
+    border-radius: 15px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>🥗 NutriAI</h1>
+<p>AI Food & Diet Assistant</p>
+</header>
+
+
+<div class="card">
+
+<h2>📷 Scan Food</h2>
+
+<input type="file" accept="image/*" id="foodImage">
+
+<img id="preview" style="display:none">
+
+<br><br>
+
+<button onclick="analyzeFood()">
+Analyze with AI
+</button>
+
+</div>
+
+
+<div class="card">
+
+<h2>👤 Your Goal</h2>
+
+<select id="goal">
+<option>Lose weight</option>
+<option>Maintain weight</option>
+<option>Gain muscle</option>
+</select>
+
+</div>
+
+
+<div class="card">
+
+<h2>📊 Nutrition</h2>
+
+<div class="nutrients">
+
+<div class="nutrient">
+🔥 Calories
+<br>
+<span id="calories">-</span>
+</div>
+
+<div class="nutrient">
+💪 Protein
+<br>
+<span id="protein">-</span>
+</div>
+
+<div class="nutrient">
+🧈 Fat
+<br>
+<span id="fat">-</span>
+</div>
+
+<div class="nutrient">
+🍞 Carbs
+<br>
+<span id="carbs">-</span>
+</div>
+
+<div class="nutrient">
+🌱 Fiber
+<br>
+<span id="fiber">-</span>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>🥗 AI Recommendation</h2>
+
+<p id="recommendation">
+Upload a meal to get advice.
+</p>
+
+</div>
+
+
+<script>
+
+const image = document.getElementById("foodImage");
+const preview = document.getElementById("preview");
+
+image.onchange = () => {
+    const file = image.files[0];
+
+    preview.src = URL.createObjectURL(file);
+    preview.style.display = "block";
+};
+
+
+function analyzeFood(){
+
+    // Later:
+    // Send image to Cloudflare Worker
+    // Worker sends it to Gemini Vision
+
+    document.getElementById("calories").innerText = "650 kcal";
+    document.getElementById("protein").innerText = "40g";
+    document.getElementById("fat").innerText = "20g";
+    document.getElementById("carbs").innerText = "70g";
+    document.getElementById("fiber").innerText = "8g";
+
+    document.getElementById("recommendation").innerText =
+    "Good meal. Add vegetables and enough water.";
+
+}
+
+</script>
+
+</body>
+</html>
