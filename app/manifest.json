@@ -2,7 +2,7 @@
   "name": "NutriAI - AI Food & Diet Assistant",
   "short_name": "NutriAI",
   "description": "AI-powered calorie counter and nutrition assistant.",
-  "start_url": "https://google.com",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#f4f7f5",
   "theme_color": "#2e7d32",
