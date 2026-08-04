@@ -191,6 +191,12 @@ function analyzeFood(){
 }
 
 </script>
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("./sw.js")
+    .then(() => console.log("NutriAI PWA installed"));
+}
+</script>
 
 </body>
 </html>
